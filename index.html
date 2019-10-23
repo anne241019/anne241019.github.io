@@ -11,7 +11,7 @@
 			a little letter
 		</title> 
 	</head>
-	<body id="bodyHTML" oncontextmenu="return false"; onkeydown="return false"; onmousedown="return false"; onLoad="type_text();" onFinish="type_text(reload)";>
+	<body oncontextmenu="return false"; onkeydown="return false"; onmousedown="return false"; onLoad="type_text();" onFinish="type_text(reload)";>
 	<div class="anne-cantik" id="anne-cantik"></div>
 	<div style="opacity: 0;">
 		<audio id='audio' controls autoplay>
@@ -33,10 +33,10 @@
 
 			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
 				document.getElementById('bodyHTML').style.backgroundImage = 'url(asset/img/sorry.jpg)'; 
-				document.getElementsByTagName('body')[0].innerHTML = '<h1 style="color:#fff !important;">Maaf yaa kamu engga bisa buka web ini pakai handphone :( </h1>';
+				document.getElementsByTagName('body')[0].innerHTML = '<h2 style="color:#fff !important;">Maaf yaa kamu engga bisa buka web ini pakai handphone :( </h2>';
 			} else if (isChrome) {
 				document.getElementById('bodyHTML').style.backgroundImage = 'url(asset/img/sorry.jpg)'; 
-				document.getElementsByTagName('body')[0].innerHTML = '<h1 style="color:#fff !important;">Wah maaf kamu engga bisa buka website ini pakai Chrome... Coba pakai browser lain ya :(</h1> ';
+				document.getElementsByTagName('body')[0].innerHTML = '<h2 style="color:#fff !important;">Wah maaf kamu engga bisa buka website ini pakai Chrome... Coba pakai browser lain ya :(</h2> ';
 			} else {
 				type_text();
 			}
