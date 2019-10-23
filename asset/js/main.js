@@ -22,17 +22,24 @@ window.onload = function(){
 			document.getElementById("audio").remove();
 			type_text();
 		} else {
-			document.getElementsByTagName('body')[0].innerHTML = '';
-			document.getElementById('bodyHTML').style.backgroundSize = 'cover'; 
-	 		document.getElementById('bodyHTML').style.backgroundImage = 'url(asset/img/sorry.png)'; 
-	 		alert('Maaf kamu engga bisa buka pakai browser ini pind...');
-	 		alert('Saran: Pakai browser native Android ya...');
-	 		alert('Atau utk best experience: Jangan buka web ini lewat handphone, buka lewat macbook kamu XD');
-	 		alert('Maaf ya ngerepotin kamu...');
+			notAllowed(function(callBack) {
+				setTimeout(function(){ 
+					alert('Maaf kamu engga bisa buka pakai browser ini pind...');
+			 		alert('Saran: Pakai browser native Android ya...');
+			 		alert('Atau utk best experience: Jangan buka web ini lewat handphone, buka lewat macbook kamu XD');
+			 		alert('Maaf ya ngerepotin kamu...');
+				}, 500);
+			});
 		}
 	} else {
 		if (chromeVersion !== null) {
-			document.getElementById("audio").remove();
+			notAllowed(function(callBack) {
+				setTimeout(function(){ 
+					alert('Maaf kamu engga bisa buka pakai browser ini pind...');
+					alert('Pakai browser selain Google Chrome ya...');
+					alert('Maaf ngerepotin kamu lagi...');
+				}, 500);
+			});
 		} else {
 			document.getElementById("iframeAudio").remove();
 		}
@@ -40,6 +47,13 @@ window.onload = function(){
 		type_text();
 	}
 };
+function notAllowed(callBack) {
+	document.getElementsByTagName('body')[0].innerHTML = '';
+	document.getElementById('bodyHTML').style.backgroundSize = 'cover'; 
+	document.getElementById('bodyHTML').style.backgroundImage = 'url(asset/img/sorry.png)'; 
+
+	callBack(1);
+}
 var tl=new Array(
 // "            Dear Lutfiane Fadila Hasan,",
 // "     ",
