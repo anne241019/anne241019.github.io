@@ -1,0 +1,97 @@
+<!DOCTYPE HTML>
+<html>
+	<head> 
+		<link rel="stylesheet" href="asset/css/sweetalert2.min.css">
+		<script src="asset/js/sweetalert2.min.js"></script>
+		<link rel="stylesheet" href="asset/css/style.css">
+		<title>
+			a little letter
+		</title> 
+	</head>
+	<body  onLoad="type_text();" onFinish="type_text(reload)";>
+	<div class="anne-cantik" id="anne-cantik"></div>
+	<div style="opacity: 0;">
+		<audio id='audio' controls autoplay>
+	        <source src="asset/mp3/241099.mp3" type="audio/mp3" />
+	        Your browser does not support the audio element.
+	    </audio>
+	</div>
+	<div class="kotak">
+		 from someone who loves you
+	</div>
+	<form>
+		<textarea name="textarea" cols=100 rows=17 readonly id="g">
+			
+		</textarea>
+	</form>
+	<script language=Javascript>
+		window.onload = function(){
+			type_text();
+		};
+	var tl=new Array(
+// "            Dear Lutfiane Fadila Hasan,",
+// "     ",
+"     24 Oktober 2019,",
+"     Hari ini merupakan hari dimana tepat 24 Tahun yang lalu,",
+"     ada seorang bayi kecil yang lahir di dunia ini..",
+"     ",
+"     Bayi kecil perempuan yang mungil, cantik, dan lucu..",
+"     Dan sekarang bayi kecil itu telah tumbuh dewasa..",
+"     Menjadi perempuan yang cantik..",
+"     Menjadi perempuan yang tangguh..",
+"     Menjadi programmer yang bertanggung jawab..",
+"     Dan sebentar lagi akan menjadi seorang istri.. Aamiin..",
+"     ",
+"     Di setiap hari di bulan ini..",
+"     Merupakan hari yang baru untukmu..",
+"     ",
+"     Selamat Ulang Tahun, Lutfiane Fadila Hasan !!",
+"     Semoga sehat selalu..",
+"     Dilimpahkan rezekinya..",
+"     Dan dilancarkan segala urusannya..",
+"     Terus semangat ^^",
+"     ",
+"     - MFM ",
+"   "
+	);
+	var speed=80;
+	var index=0; text_pos=0;
+	var str_length=tl[0].length;
+	var contents, row;
+	var nextPict = 0;
+	function type_text()
+	{
+		if (row == 5 && nextPict == 0) {
+			setTimeout(function(){ 
+				document.getElementById('anne-cantik').style.backgroundImage = 'url(asset/img/orang-cantik.jpg)'; 
+				nextPict = 1;
+			}, 4000);
+		}
+
+		if (row == null) {
+			var media = document.getElementById("audio");
+			const playPromise = media.play();
+			if (playPromise !== null){
+			    playPromise.catch(() => { media.play(); })
+			}
+		}
+
+		contents='';
+		row=Math.max(0,index-25);
+		while(row<index) contents += tl[row++] + '\r\n';
+		document.forms[0].elements[0].value = contents + tl[index].substring(0,text_pos) + "|";
+		if(text_pos++==str_length) {
+			text_pos=0;
+			index++;
+			if(index!=tl.length) {
+				str_length=tl[index].length;
+				setTimeout("type_text()",800);
+			}
+		}else setTimeout("type_text()",speed);
+	}
+		
+	</script>
+
+	</center>
+	</body>
+</html>
