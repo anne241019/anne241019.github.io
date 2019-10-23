@@ -42,9 +42,8 @@ window.onload = function(){
 			});
 		} else {
 			document.getElementById("iframeAudio").remove();
+			type_text();
 		}
-
-		type_text();
 	}
 };
 function notAllowed(callBack) {
