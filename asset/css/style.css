@@ -1,7 +1,8 @@
-body{
-	background:#EEEEEE url(../img/background.jpg) repeat;
+
+html{
+	background:#EEEEEE url(../img/background.jpg) no-repeat;
 	opacity:.5;
-	background-size:cover;
+	/*background-size:cover;*/
 	overflow-x:hidden;
 }
 @font-face{
@@ -11,19 +12,19 @@ body{
 	url('../fonts/FACEBOLF.OTF');
 }
 #g {
-	font:15px Facebook Letter Faces;
+	font:14px Facebook Letter Faces;
 	color:#000;
 	line-height: 30px;
 	background:url(http://4.bp.blogspot.com/_sWgxdPA7hBw/TJxB8jW-u_I/AAAAAAAAAPk/ePX2iac0sQQ/s1600/membuat+kertas++menggunakan+photoshop.jpg) no-repeat;
 	/*background:url(http://sociallawbook.co/wp-content/uploads/2019/08/printable-writing-paper-with-border-lines-template-for-writing-printable-writing-paper-ready-printable-writing-paper-lined-helpful-meanwhile-with-medium-printable-heart-border-writing-paper.jpg) no-repeat;*/
 	padding: 35px;
-	border:solid 3px #ddd;
+	border:none;
 	border-radius:10px;
-	box-shadow:0px 0px 10px #fff;
+	/*box-shadow:0px 0px 10px #fff;*/
 	position:absolute;
 	left: 695px;
 	top: 164px;
-	width: 500px;
+	/*width: 500px;*/
 	height: 456px;
 	z-index:-3;
 }
@@ -56,4 +57,12 @@ body{
 	left: 815px;
 	top: 95px;
 	padding: 5px;
+}
+
+
+@media screen and (max-width: 767px) {
+	#g {
+		font: 10px Facebook Letter Faces;
+		color: red;
+	}
 }

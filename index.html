@@ -1,11 +1,9 @@
 <!DOCTYPE HTML>
-<html>
+<html id="bodyHTML">
 	<head> 
-		<link rel="stylesheet" href="asset/css/sweetalert2.min.css">
 		<link rel="icon" 
 	      type="image/png" 
 	      href="asset/img/fav.ico">
-		<script src="asset/js/sweetalert2.min.js"></script>
 		<link rel="stylesheet" href="asset/css/style.css">
 		<title>
 			a little letter
@@ -14,7 +12,8 @@
 	<body oncontextmenu="return false"; onkeydown="return false"; onmousedown="return false"; onLoad="type_text();" onFinish="type_text(reload)";>
 	<div class="anne-cantik" id="anne-cantik"></div>
 	<div style="opacity: 0;">
-		<audio id='audio' controls autoplay>
+		<iframe src="asset/mp3/241099.mp3" allow="autoplay" style="display:none" id="iframeAudio"> </iframe>
+		<audio id='audio' autoplay loop >
 	        <source src="asset/mp3/241099.mp3" type="audio/mp3" />
 	        Your browser does not support the audio element.
 	    </audio>
@@ -23,21 +22,50 @@
 		 from someone who loves you
 	</div>
 	<form>
-		<textarea name="textarea" cols=100 rows=17 readonly id="g">
+		<textarea name="textarea" cols=60 rows=17 readonly id="g">
 			
 		</textarea>
 	</form>
 	<script language=Javascript>
 		window.onload = function(){
-			var isChrome = /Chrome/.test(navigator.userAgent) && /Google Inc/.test(navigator.vendor);
+			var navU = navigator.userAgent;
 
-			if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-				document.getElementById('bodyHTML').style.backgroundImage = 'url(asset/img/sorry.jpg)'; 
-				document.getElementsByTagName('body')[0].innerHTML = '<h2 style="color:#fff !important;">Maaf yaa kamu engga bisa buka web ini pakai handphone :( </h2>';
-			} else if (isChrome) {
-				document.getElementById('bodyHTML').style.backgroundImage = 'url(asset/img/sorry.jpg)'; 
-				document.getElementsByTagName('body')[0].innerHTML = '<h2 style="color:#fff !important;">Wah maaf kamu engga bisa buka website ini pakai Chrome... Coba pakai browser lain ya :(</h2> ';
+			// Android Mobile
+			var isAndroidMobile = navU.indexOf('Android') > -1 && navU.indexOf('Mozilla/5.0') > -1 && navU.indexOf('AppleWebKit') > -1;
+
+			// Apple webkit
+			var regExAppleWebKit = new RegExp(/AppleWebKit\/([\d.]+)/);
+			var resultAppleWebKitRegEx = regExAppleWebKit.exec(navU);
+			var appleWebKitVersion = (resultAppleWebKitRegEx === null ? null : parseFloat(regExAppleWebKit.exec(navU)[1]));
+
+			// Chrome
+			var regExChrome = new RegExp(/Chrome\/([\d.]+)/);
+			var resultChromeRegEx = regExChrome.exec(navU);
+			var chromeVersion = (resultChromeRegEx === null ? null : parseFloat(regExChrome.exec(navU)[1]));
+
+			// Native Android Browser
+			var isAndroidBrowser = isAndroidMobile && (appleWebKitVersion !== null && appleWebKitVersion < 537) || (chromeVersion !== null && chromeVersion < 77);
+
+			if (isAndroidMobile) {
+				if (chromeVersion !== null && chromeVersion < 77) {
+					document.getElementById("audio").remove();
+					type_text();
+				} else {
+					document.getElementsByTagName('body')[0].innerHTML = '';
+					document.getElementById('bodyHTML').style.backgroundSize = 'cover'; 
+			 		document.getElementById('bodyHTML').style.backgroundImage = 'url(asset/img/sorry.png)'; 
+			 		alert('Maaf kamu engga bisa buka pakai browser ini pind...');
+			 		alert('Saran: Pakai browser native Android ya...');
+			 		alert('Atau utk best experience: Jangan buka web ini lewat handphone, buka lewat macbook kamu XD');
+			 		alert('Maaf ya ngerepotin kamu...');
+				}
 			} else {
+				if (chromeVersion) {
+					document.getElementById("audio").remove();
+				} else {
+					document.getElementById("iframeAudio").remove();
+				}
+
 				type_text();
 			}
 		};
@@ -45,7 +73,7 @@
 // "            Dear Lutfiane Fadila Hasan,",
 // "     ",
 "     24 Oktober 2019,",
-"     Hari ini merupakan hari dimana tepat 24 Tahun yang lalu,",
+"     Merupakan hari dimana tepat 24 Tahun yang lalu,",
 "     ada seorang bayi kecil yang lahir di dunia ini..",
 "     ",
 "     Bayi kecil perempuan yang mungil, cantik, dan lucu..",
@@ -53,12 +81,13 @@
 "     Menjadi perempuan yang cantik..",
 "     Menjadi perempuan yang tangguh..",
 "     Menjadi programmer yang bertanggung jawab..",
-"     Dan sebentar lagi akan menjadi seorang istri.. Aamiin..",
+"     Dan sebentar lagi akan menjadi seorang istrinya MFM.. ",
+"     Aamiin.. hehe :D ",
 "     ",
 "     Di setiap hari di bulan ini..",
 "     Merupakan hari yang baru untukmu..",
 "     ",
-"     Selamat Ulang Tahun, Lutfiane Fadila Hasan !!",
+"     Selamat ulang tahun, yaa, Lutfiane Fadila Hasan ",
 "     Semoga sehat selalu..",
 "     Dilimpahkan rezekinya..",
 "     Dan dilancarkan segala urusannya..",
@@ -79,14 +108,6 @@
 				document.getElementById('anne-cantik').style.backgroundImage = 'url(asset/img/orang-cantik.jpg)'; 
 				nextPict = 1;
 			}, 4000);
-		}
-
-		if (row == null) {
-			var media = document.getElementById("audio");
-			const playPromise = media.play();
-			if (playPromise !== null){
-			    playPromise.catch(() => { media.play(); })
-			}
 		}
 
 		contents='';
