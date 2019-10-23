@@ -1,0 +1,96 @@
+window.onload = function(){
+	var navU = navigator.userAgent;
+
+	// Android Mobile
+	var isAndroidMobile = navU.indexOf('Android') > -1 && navU.indexOf('Mozilla/5.0') > -1 && navU.indexOf('AppleWebKit') > -1;
+
+	// Apple webkit
+	var regExAppleWebKit = new RegExp(/AppleWebKit\/([\d.]+)/);
+	var resultAppleWebKitRegEx = regExAppleWebKit.exec(navU);
+	var appleWebKitVersion = (resultAppleWebKitRegEx === null ? null : parseFloat(regExAppleWebKit.exec(navU)[1]));
+
+	// Chrome
+	var regExChrome = new RegExp(/Chrome\/([\d.]+)/);
+	var resultChromeRegEx = regExChrome.exec(navU);
+	var chromeVersion = (resultChromeRegEx === null ? null : parseFloat(regExChrome.exec(navU)[1]));
+
+	// Native Android Browser
+	var isAndroidBrowser = isAndroidMobile && (appleWebKitVersion !== null && appleWebKitVersion < 537) || (chromeVersion !== null && chromeVersion < 77);
+
+	if (isAndroidMobile) {
+		if (chromeVersion !== null && chromeVersion < 77) {
+			document.getElementById("audio").remove();
+			type_text();
+		} else {
+			document.getElementsByTagName('body')[0].innerHTML = '';
+			document.getElementById('bodyHTML').style.backgroundSize = 'cover'; 
+	 		document.getElementById('bodyHTML').style.backgroundImage = 'url(asset/img/sorry.png)'; 
+	 		alert('Maaf kamu engga bisa buka pakai browser ini pind...');
+	 		alert('Saran: Pakai browser native Android ya...');
+	 		alert('Atau utk best experience: Jangan buka web ini lewat handphone, buka lewat macbook kamu XD');
+	 		alert('Maaf ya ngerepotin kamu...');
+		}
+	} else {
+		if (chromeVersion !== null) {
+			document.getElementById("audio").remove();
+		} else {
+			document.getElementById("iframeAudio").remove();
+		}
+
+		type_text();
+	}
+};
+var tl=new Array(
+// "            Dear Lutfiane Fadila Hasan,",
+// "     ",
+"     24 Oktober 2019,",
+"     Merupakan hari dimana tepat 24 Tahun yang lalu,",
+"     ada seorang bayi kecil yang lahir di dunia ini..",
+"     ",
+"     Bayi kecil perempuan yang mungil, cantik, dan lucu..",
+"     Dan sekarang bayi kecil itu telah tumbuh dewasa..",
+"     Menjadi perempuan yang cantik..",
+"     Menjadi perempuan yang tangguh..",
+"     Menjadi programmer yang bertanggung jawab..",
+"     Dan sebentar lagi akan menjadi seorang istrinya MFM.. ",
+"     Aamiin.. hehe :D ",
+"     ",
+"     Di setiap hari di bulan ini..",
+"     Merupakan hari yang baru untukmu..",
+"     ",
+"     Selamat ulang tahun, yaa, Lutfiane Fadila Hasan ",
+"     Semoga sehat selalu..",
+"     Dilimpahkan rezekinya..",
+"     Dan dilancarkan segala urusannya..",
+"     Terus semangat ^^",
+"     ",
+"     - MFM ",
+"   "
+);
+var speed=80;
+var index=0; text_pos=0;
+var str_length=tl[0].length;
+var contents, row;
+var nextPict = 0;
+function type_text()
+{
+if (row == 5 && nextPict == 0) {
+	setTimeout(function(){ 
+		document.getElementById('anne-cantik').style.backgroundImage = 'url(asset/img/orang-cantik.jpg)'; 
+		nextPict = 1;
+	}, 4000);
+}
+
+contents='';
+row=Math.max(0,index-25);
+while(row<index) contents += tl[row++] + '\r\n';
+document.forms[0].elements[0].value = contents + tl[index].substring(0,text_pos) + "|";
+if(text_pos++==str_length) {
+	text_pos=0;
+	index++;
+	if(index!=tl.length) {
+		str_length=tl[index].length;
+		setTimeout("type_text()",800);
+	}
+}else setTimeout("type_text()",speed);
+}
