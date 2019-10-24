@@ -22,7 +22,9 @@ window.onload = function(){
 			document.getElementById("audio").remove();
 			type_text();
 		} else {
+			document.getElementById("iframeAudio").remove();
 			document.getElementById("audio").remove();
+			type_text();
 			// notAllowed(function(callBack) {
 			// 	setTimeout(function(){ 
 			// 		alert('Maaf kamu engga bisa buka pakai browser ini pind...');
