@@ -18,20 +18,20 @@ window.onload = function(){
 	var isAndroidBrowser = isAndroidMobile && (appleWebKitVersion !== null && appleWebKitVersion < 537) || (chromeVersion !== null && chromeVersion < 77);
 
 	if (isAndroidMobile) {
-		alert(chromeVersion);
-		if (chromeVersion !== null && chromeVersion < 77) {
+ 		alert('Saran: Kalau di HP Bukanya pakai Web Browser yang aku download di HP kamu ya pind ... ');
+		// if (chromeVersion !== null && chromeVersion < 77) {
 			document.getElementById("audio").remove();
 			type_text();
-		} else {
-			notAllowed(function(callBack) {
-				setTimeout(function(){ 
-					alert('Maaf kamu engga bisa buka pakai browser ini pind...');
-			 		alert('Saran: Pakai Web Browser yang aku download ya di HP kamu ... ');
-			 		alert('Atau utk best experience: Jangan buka web ini lewat handphone, buka lewat macbook kamu XD');
-			 		alert('Maaf ya ngerepotin kamu...');
-				}, 500);
-			});
-		}
+		// } else {
+			// notAllowed(function(callBack) {
+				// setTimeout(function(){ 
+					// alert('Maaf kamu engga bisa buka pakai browser ini pind...');
+			 		// alert('Saran: Pakai Web Browser yang aku download ya di HP kamu ... ');
+			 		// alert('Atau utk best experience: Jangan buka web ini lewat handphone, buka lewat macbook kamu XD');
+			 		// alert('Maaf ya ngerepotin kamu...');
+				// }, 500);
+			// });
+		// }
 	} else {
 		if (chromeVersion !== null) {
 			notAllowed(function(callBack) {
