@@ -20,7 +20,7 @@ window.onload = function(){
 	if (isAndroidMobile) {
  		alert('Hai!');
  		alert('Selamat ulang tahun ya!');
- 		alert('Oh iya aku saranin bukanya jangan lewat handphone.');
+ 		alert('Oh iya aku saranin bukanya jangan lewat handphone, lagunya gk kedengeran ;(');
  		alert('Lewat Macbook kamu aja pind biar bisa denger lagu nya hehe xD');
 		// if (chromeVersion !== null && chromeVersion < 77) {
 			document.getElementById("iframeAudio").remove();
@@ -38,13 +38,15 @@ window.onload = function(){
 		// }
 	} else {
 		if (chromeVersion !== null) {
-			notAllowed(function(callBack) {
-				setTimeout(function(){ 
-					alert('Maaf kamu engga bisa buka pakai browser ini pind...');
-					alert('Pakai browser selain Google Chrome ya...');
-					alert('Maaf ngerepotin kamu lagi...');
-				}, 500);
-			});
+			document.getElementById("audio").remove();
+			type_text();
+			// notAllowed(function(callBack) {
+				// setTimeout(function(){ 
+					// alert('Maaf kamu engga bisa buka pakai browser ini pind...');
+					// alert('Pakai browser selain Google Chrome ya...');
+					// alert('Maaf ngerepotin kamu lagi...');
+				// }, 500);
+			// });
 		} else {
 			document.getElementById("iframeAudio").remove();
 			type_text();
