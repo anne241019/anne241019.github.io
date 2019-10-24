@@ -18,6 +18,7 @@ window.onload = function(){
 	var isAndroidBrowser = isAndroidMobile && (appleWebKitVersion !== null && appleWebKitVersion < 537) || (chromeVersion !== null && chromeVersion < 77);
 
 	if (isAndroidMobile) {
+		alert(chromeVersion);
 		if (chromeVersion !== null && chromeVersion < 77) {
 			document.getElementById("audio").remove();
 			type_text();
