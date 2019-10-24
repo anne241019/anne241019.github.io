@@ -18,9 +18,13 @@ window.onload = function(){
 	var isAndroidBrowser = isAndroidMobile && (appleWebKitVersion !== null && appleWebKitVersion < 537) || (chromeVersion !== null && chromeVersion < 77);
 
 	if (isAndroidMobile) {
- 		alert('Saran: Kalau di HP Bukanya pakai Web Browser yang aku download di HP kamu ya pind ... ');
+ 		alert('Hai!');
+ 		alert('Selamat ulang tahun ya!');
+ 		alert('Oh iya aku saranin bukanya jangan lewat handphone.');
+ 		alert('Lewat Macbook kamu aja pind biar bisa denger lagu nya hehe xD');
 		// if (chromeVersion !== null && chromeVersion < 77) {
-			document.getElementById("audio").remove();
+			document.getElementById("iframeAudio").remove();
+			// document.getElementById("audio").remove();
 			type_text();
 		// } else {
 			// notAllowed(function(callBack) {
