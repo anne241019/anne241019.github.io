@@ -64,7 +64,7 @@ var tl=new Array(
 // "            Dear Lutfiane Fadila Hasan,",
 // "     ",
 "     24 Oktober 2019,",
-"     Merupakan hari dimana tepat 24 Tahun yang lalu,",
+"     Merupakan hari dimana tepat 20 Tahun yang lalu,",
 "     ada seorang bayi kecil yang lahir di dunia ini..",
 "     ",
 "     Bayi kecil perempuan yang mungil, cantik, dan lucu..",
