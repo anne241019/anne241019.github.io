@@ -22,14 +22,15 @@ window.onload = function(){
 			document.getElementById("audio").remove();
 			type_text();
 		} else {
-			notAllowed(function(callBack) {
-				setTimeout(function(){ 
-					alert('Maaf kamu engga bisa buka pakai browser ini pind...');
-			 		alert('Saran: Pakai browser native Android ya...');
-			 		alert('Atau utk best experience: Jangan buka web ini lewat handphone, buka lewat macbook kamu XD');
-			 		alert('Maaf ya ngerepotin kamu...');
-				}, 500);
-			});
+			document.getElementById("audio").remove();
+			// notAllowed(function(callBack) {
+			// 	setTimeout(function(){ 
+			// 		alert('Maaf kamu engga bisa buka pakai browser ini pind...');
+			//  		alert('Saran: Pakai browser native Android ya...');
+			//  		alert('Atau utk best experience: Jangan buka web ini lewat handphone, buka lewat macbook kamu XD');
+			//  		alert('Maaf ya ngerepotin kamu...');
+			// 	}, 500);
+			// });
 		}
 	} else {
 		if (chromeVersion !== null) {
