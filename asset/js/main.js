@@ -23,7 +23,6 @@ window.onload = function(){
  		alert('Oh iya aku saranin bukanya jangan lewat handphone, lagunya gk kedengeran ;(');
  		alert('Lewat Macbook kamu aja pind biar bisa denger lagu nya hehe xD');
 		// if (chromeVersion !== null && chromeVersion < 77) {
-			document.getElementById("iframeAudio").remove();
 			// document.getElementById("audio").remove();
 			type_text();
 		// } else {
@@ -38,7 +37,6 @@ window.onload = function(){
 		// }
 	} else {
 		if (chromeVersion !== null) {
-			document.getElementById("audio").remove();
 			type_text();
 			// notAllowed(function(callBack) {
 				// setTimeout(function(){ 
@@ -48,7 +46,6 @@ window.onload = function(){
 				// }, 500);
 			// });
 		} else {
-			document.getElementById("iframeAudio").remove();
 			type_text();
 		}
 	}
@@ -89,6 +86,26 @@ var index=0; text_pos=0;
 var str_length=tl[0].length;
 var contents, row;
 var nextPict = 0;
+
+let autoplay = true;
+let soundID;
+var sound = new Howl({
+	src: ['asset/mp3/241099.mp3'],
+	autoplay: autoplay,
+	loop: true,
+});
+
+soundID = sound.play();
+
+function mute(){
+	if(document.getElementById('audio').muted == false){
+	  document.getElementById('audio').muted = true;
+	} else {
+	  document.getElementById('audio').muted = false;
+	}
+}
+
+
 function type_text()
 {
 if (row == 5 && nextPict == 0) {

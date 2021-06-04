@@ -11,12 +11,8 @@
 	</head>
 	<body oncontextmenu="return false"; onkeydown="return false"; onmousedown="return false"; onLoad="type_text();" onFinish="type_text(reload)";>
 			<div class="anne-cantik" id="anne-cantik"></div>
-			<div style="opacity: 0;">
-				<iframe src="asset/mp3/241099.mp3" allow="autoplay" style="display:none" id="iframeAudio"> </iframe>
-				<audio id='audio' autoplay loop >
-			        <source src="asset/mp3/241099.mp3" type="audio/mp3" />
-			        Your browser does not support the audio element.
-			    </audio>
+			<div>
+				<button id="music">mute</button>
 			</div>
 			<div class="kotak">
 				 from someone who loves you
@@ -26,6 +22,7 @@
 					
 				</textarea>
 			</form>
+		    <script src="asset/js/howler.min.js"></script>
 		    <script src="asset/js/main.js"></script>
 	</body>
 </html>
