@@ -24,7 +24,7 @@ window.onload = function(){
  		alert('Lewat Macbook kamu aja pind biar bisa denger lagu nya hehe xD');
 		// if (chromeVersion !== null && chromeVersion < 77) {
 			// document.getElementById("audio").remove();
-			type_text();
+			// type_text();
 		// } else {
 			// notAllowed(function(callBack) {
 				// setTimeout(function(){ 
@@ -37,7 +37,7 @@ window.onload = function(){
 		// }
 	} else {
 		if (chromeVersion !== null) {
-			type_text();
+			// type_text();
 			// notAllowed(function(callBack) {
 				// setTimeout(function(){ 
 					// alert('Maaf kamu engga bisa buka pakai browser ini pind...');
@@ -46,7 +46,7 @@ window.onload = function(){
 				// }, 500);
 			// });
 		} else {
-			type_text();
+			// type_text();
 		}
 	}
 };
@@ -128,3 +128,12 @@ if(text_pos++==str_length) {
 	}
 }else setTimeout("type_text()",speed);
 }
+
+
+$(document).ready(function (e) {
+    $("#open-button").on('click', function(){
+		type_text();
+		$('.kotak').addClass('show');
+		$('#wrapper').fadeOut();;
+     });
+});

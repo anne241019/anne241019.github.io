@@ -9,10 +9,13 @@
 			a little letter
 		</title> 
 	</head>
-	<body oncontextmenu="return false"; onkeydown="return false"; onmousedown="return false"; onLoad="type_text();" onFinish="type_text(reload)";>
+	<body oncontextmenu="return false"; onkeydown="return false"; onmousedown="return false";>
 			<div class="anne-cantik" id="anne-cantik"></div>
-			<div>
-				<button id="music">mute</button>
+			<div id="wrapper">
+				<div class="vertical-center">
+					<p class="greeting">Hai Anne, selamat ulang tahun yang ke 19, sehat selalu dan semoga panjang umur ya!</p>
+					<button id="open-button">Buka</button>
+				</div>
 			</div>
 			<div class="kotak">
 				 from someone who loves you
@@ -22,6 +25,7 @@
 					
 				</textarea>
 			</form>
+			<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 		    <script src="asset/js/howler.min.js"></script>
 		    <script src="asset/js/main.js"></script>
 	</body>
